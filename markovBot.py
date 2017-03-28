@@ -17,19 +17,8 @@ tweetbot.read(book)
 #print("tweetbot says:")
 #print(my_first_text)
 
-#read in api key information from secrets.txt in same directory 
-#in order consumer key, consumer secret, access token, access token secret. append an extra character at the end of hte 
-#access token line because we remove last character 
-apiList = [""]*4
-f = fileinput.input("secrets.txt")
-i = 0
-for line in f:
-	apiList[i] = line[:-1]
-	#print(apiList[i])
-	i += 1
-fileinput.close()
-
-
+ 
+ 
 #### API SECTION INTENTIONALLY OBFUSCATED####
 # Consumer Key (API Key)
 cons_key = secrets.cons_key
