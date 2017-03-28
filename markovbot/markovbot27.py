@@ -105,6 +105,7 @@ class MarkovBot():
 		# Prepare the tweeting thread
 		self._tweetingdatabase = None
 		self._autotweeting = False
+		self._autotweetingselection = False
 		self._tweetinginterval = None
 		self._tweetingjitter = None
 		self._tweetingkeywords = None
@@ -683,7 +684,7 @@ class MarkovBot():
 	
 	
 	def twitter_tweeting_start(self, database=u'default', days=1, hours=0, \
-		minutes=0, jitter=0, keywords=None, prefix=None, suffix=None):
+		minutes=0, jitter=0, keywords=None, prefix=None, suffix=None, allowselection=False):
 		
 		"""Periodically posts a new tweet with generated text. You can
 		specify the interval between tweets in days, hours, or minutes, or
@@ -762,6 +763,8 @@ class MarkovBot():
 		self._tweetingkeywords = keywords
 		self._tweetingprefix = prefix
 		self._tweetingsuffix = suffix
+
+		self._autotweetingselection = allowselection
 		
 		# Signal the _autotweet thread to continue
 		self._autotweeting = True
