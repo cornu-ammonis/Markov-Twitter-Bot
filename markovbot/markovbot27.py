@@ -26,6 +26,10 @@ import copy
 import time
 import pickle
 import random
+
+import sys
+from select import select
+
 from threading import Thread, Lock
 from multiprocessing import Queue
 
@@ -1190,11 +1194,41 @@ class MarkovBot():
 					suffix = None
 					self._message(u'_autotweet', \
 						u"Could not recognise the type of suffix '%s'; using no suffix." % (self._tweetingsuffix))
-
+                                print("about to construct tweet")
 				# Construct a new tweet
-				newtweet = self._construct_tweet(database=database, \
-					seedword=kw, prefix=prefix, suffix=suffix)
+				if not self._autotweetingselection:
+                                        newtweet = self._construct_tweet(database=database, \
+                                                seedword=kw, prefix=prefix, suffix=suffix)
 
+                                else:
+                                        newtweetoptions = []
+                                        for i in range(5):
+                                                newtweetoptions.append(self._construct_tweet(database=database, \
+                                                seedword=kw, prefix=prefix, suffix=suffix))
+                                                
+                                        for i in range(len(newtweetoptions)):
+                                                print("option " + str(i) + " " + newtweetoptions[i])
+
+                                        timeout = 10
+                                        print ("Enter selection:")
+                                        rlist, _, _ = select([sys.stdin], [], [], timeout)
+                                        if rlist:
+                                            s = sys.stdin.readline()
+                                            print s
+                                        else:
+                                            print "No input. Moving on..."
+                                            s = '0'
+
+                                        try:
+                                                newtweet = newtweetoptions[int(s)]
+                                        except ValueError:
+                                                newtweet = newtweetoptions[0]
+                                        
+                                        
+                                        
+                                                
+                                                                
+                                                                
 				# Acquire the twitter lock
 				self._tlock.acquire(True)
 				# Reply to the incoming tweet
