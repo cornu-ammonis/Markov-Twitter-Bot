@@ -2,6 +2,7 @@ So far this library just includes another GitHub repository (https://github.com/
 
 
 Some potentially helpful resources follow: 
+
 http://stackoverflow.com/questions/5306729/how-do-markov-chain-chatbots-work
 https://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/  (an article on multithreading in python)
 
