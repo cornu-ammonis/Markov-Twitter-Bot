@@ -16,9 +16,11 @@ tweetbot.read(book)
 
 book = os.path.join(dirname, 'studyOfInnerCultivation.txt')
 tweetbot.read(book)
+
+"""
 my_first_text = []
 for i in range(5):
-    my_first_text.append(tweetbot.generate_text(25, seedword=["consumer"]))
+    my_first_text.append(tweetbot.generate_text(25, seedword=None))
 
 for i in range(len(my_first_text)):
     print("option " + str(i) + " " + my_first_text[i])
@@ -39,7 +41,7 @@ else:
 #print(my_first_text)"""
 
 
-"""
+
 #### API SECTION INTENTIONALLY OBFUSCATED####
 # Consumer Key (API Key)
 cons_key = secrets.cons_key
@@ -64,6 +66,6 @@ keywords = ['investments', 'price', 'consumer', 'stochastic', 'bitcoin', ]
 #tweetbot.twitter_autoreply_start(targetstring, keywords=keywords, prefix=prefix, suffix=suffix, maxconvdepth=maxconvdepth)
 
 #TODO: edit this method so it lets me select among several tweet, defaults to random choice after specified interval
-tweetbot.twitter_tweeting_start(days=0, hours=0, minutes=44, keywords=keywords, prefix=None, suffix=None, allowselection=True)
-"""
+tweetbot.twitter_tweeting_start(days=0, hours=0, minutes=44, keywords=None, prefix=None, suffix=None, allowselection=True)
+
 import time; time.sleep(86400) 
