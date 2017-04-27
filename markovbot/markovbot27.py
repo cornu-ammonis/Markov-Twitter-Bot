@@ -796,6 +796,13 @@ class MarkovBot():
 		self._autotweeting = False
 
 	
+	# reverses the words found in the given tweet
+	# @param tweet - a string containing words separated by spaces 
+	# @returns a string containing the words in @tweet in reverse order
+	def reverseTweet(self, tweet):
+		return " ".join(tweet.split()[::-1])
+
+
 	def _autoreply(self):
 		
 		"""Continuously monitors Twitter Stream and replies when a tweet
