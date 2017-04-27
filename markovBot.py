@@ -32,17 +32,17 @@ access_token_secret = secrets.access_token_secret
 tweetbot.twitter_login(cons_key, cons_secret, access_token, access_token_secret)
 ######
 
-#targetstring = 'Nietzsche'
+targetstring = "@TaoJonesIndstrl"
 keywords = None
 prefix = None
 suffix = '#TaoJones'
-maxconvdepth = 2
-keywords = ['investments', 'price', 'become', 'self', 'analysis', 'meditation', 'consumer', 'stochastic']
+maxconvdepth = 5
+#keywords = ['investments', 'price', 'become', 'self', 'analysis', 'meditation', 'consumer', 'stochastic']
 
 # Start auto-responding to tweets
-#tweetbot.twitter_autoreply_start(targetstring, keywords=keywords, prefix=prefix, suffix=suffix, maxconvdepth=maxconvdepth)
+tweetbot.twitter_autoreply_start(targetstring, keywords=keywords, prefix=prefix, suffix=None, maxconvdepth=maxconvdepth)
 
 #TODO: edit this method so it lets me select among several tweet, defaults to random choice after specified interval
-tweetbot.twitter_tweeting_start(days=0, hours=0, minutes=30, keywords=keywords, prefix=None, suffix=None)
+#tweetbot.twitter_tweeting_start(days=0, hours=0, minutes=30, keywords=keywords, prefix=None, suffix=None)
 
 import time; time.sleep(86400)

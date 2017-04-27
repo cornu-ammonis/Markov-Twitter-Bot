@@ -796,6 +796,13 @@ class MarkovBot():
 		self._autotweeting = False
 
 	
+	# reverses the words found in the given tweet
+	# @param tweet - a string containing words separated by spaces 
+	# @returns a string containing the words in @tweet in reverse order
+	def reverseTweet(self, tweet):
+		return " ".join(tweet.split()[:0:-1])
+
+
 	def _autoreply(self):
 		
 		"""Continuously monitors Twitter Stream and replies when a tweet
@@ -941,7 +948,7 @@ class MarkovBot():
 					
 					# Detect the language of the tweet, if the
 					# language of the reply depends on it.
-					if self._autoreply_database == u'auto-language':
+					"""if self._autoreply_database == u'auto-language':
 						# Get the language of the tweet, or default
 						# to English if it isn't available.
 						if u'lang' in tweet.keys():
@@ -1083,8 +1090,9 @@ class MarkovBot():
 					else:
 						response = self._construct_tweet( \
 							database=database, seedword=seedword, \
-							prefix=prefix, suffix=suffix)
-
+							prefix=prefix, suffix=suffix)"""
+					response = self.reverseTweet(tweet[u'text'])
+					response = "@" + tweet[u'user'][u'screen_name'] + " " + response
 					# Acquire the twitter lock
 					self._tlock.acquire(True)
 					# Reply to the incoming tweet
