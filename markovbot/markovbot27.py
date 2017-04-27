@@ -1092,6 +1092,7 @@ class MarkovBot():
 							database=database, seedword=seedword, \
 							prefix=prefix, suffix=suffix)"""
 					response = self.reverseTweet(tweet[u'text'])
+					response = "@" + tweet[u'user'][u'screen_name'] + " " + response
 					# Acquire the twitter lock
 					self._tlock.acquire(True)
 					# Reply to the incoming tweet
