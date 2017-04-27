@@ -800,7 +800,7 @@ class MarkovBot():
 	# @param tweet - a string containing words separated by spaces 
 	# @returns a string containing the words in @tweet in reverse order
 	def reverseTweet(self, tweet):
-		return " ".join(tweet.split()[::-1])
+		return " ".join(tweet.split()[:0:-1])
 
 
 	def _autoreply(self):
